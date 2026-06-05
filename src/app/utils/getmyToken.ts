@@ -1,10 +1,9 @@
 import { decode } from "next-auth/jwt";
 import { cookies } from "next/headers";
 
-export default async function getMyToken() {
+export default async function getMyToken(): Promise<string | null> {
   const cookieStore = await cookies();
 
-  
   const token =
     cookieStore.get("next-auth.session-token")?.value ||
     cookieStore.get("__Secure-next-auth.session-token")?.value;
@@ -16,6 +15,5 @@ export default async function getMyToken() {
     secret: process.env.NEXTAUTH_SECRET!,
   });
 
-  
-  return decoded?.accessToken || null;
+  return (decoded?.accessToken as string) || null;
 }
