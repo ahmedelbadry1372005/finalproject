@@ -1,23 +1,10 @@
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from './_components/Navbar';
+import Navbar from "./_components/Navbar";
 import { Toaster } from "sonner";
-import { SessionProvider } from "next-auth/react";
 import MySessionProvider from "./_providers/MySessionProvider";
 import CartContextProvider from "./_contexts/CartContextProvider";
 import { getUserCart } from "./_actions/cart.Action";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "FreshCart",
@@ -29,23 +16,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const userCart = await getUserCart();
 
-  const userCart = await getUserCart()
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-
+    <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <MySessionProvider>
-
-          <CartContextProvider userCart ={userCart}>
-
-
+          <CartContextProvider userCart={userCart}>
             <Toaster />
             <Navbar />
-
             {children}
           </CartContextProvider>
         </MySessionProvider>
