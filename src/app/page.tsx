@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import ProductCard from "./_components/ProductCard";
-import { getAllProducts } from "../Services/Products";
+import { getAllProducts } from "@/services/Products";
 import Slider from "./_components/Slider";
-import homeSliderImage from "@/images/FreshVegatables.png"
+import homeSliderImage from "@/images/FreshVegatables.png";
 import { Oval } from "react-loader-spinner";
 import getmyToken from "./utils/getmyToken";
 const ShopByCategoryLazyComp = lazy( () => import("./_components/ShopByCategory") )

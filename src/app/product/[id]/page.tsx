@@ -1,5 +1,5 @@
 import React from 'react'
-import { getProductById } from '@/services/product';
+import { getProductById } from '@/services/Products';
 import { FaStar } from 'react-icons/fa';
 import { FaCartShopping } from 'react-icons/fa6';
 export default async function page({ params }) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductCard from '../_components/ProductCard';
-import { getAllProducts } from '@/services/product'
+import { getAllProducts } from '@/services/Products';
 import Myslider from '../_components/Myslider';
 import image1 from '@/images/FreshVegatables.png';
 import ShopByCategory from '../_components/ShopByCategory';
@@ -9,7 +9,7 @@ const images = [image1, image1, image1];
 
 export default async function Home() {
 
-  const products = await getAllproducts();
+  const products = await getAllProducts();
 
   return (
     <>
