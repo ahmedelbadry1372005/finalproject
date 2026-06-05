@@ -22,3 +22,5 @@ export const signupSchema = zod.object({
     )
 
 });
+
+export type signUpDataType = zod.infer<typeof signupSchema>;
